@@ -17,7 +17,7 @@ function displayTimer(min, sec) {
 function formatTime(min, sec) {
     if (timerSeconds < 10) {
         timer.textContent = "Time Remaining: " + min + ":0" + sec;
-    }   else {
+    } else {
         timer.textContent = "Time Remaining: " + min + ":" + sec;
     }
 }
@@ -26,7 +26,7 @@ function formatTime(min, sec) {
 function startTimer() {
     runQuiz();
     timerButton.disabled = true;
-    interval = setInterval(function (){
+    interval = setInterval(function () {
         secondsElapsed++;
         updateTimer();
     }, 1000);

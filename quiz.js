@@ -2,8 +2,9 @@ const questionElem = document.getElementById("question");
 const answersElem = document.getElementById("answers");
 let score = 0;
 let buttonAnswer = [];
-let hiScore = -1;
+let hiScore = localStorage.getItem("hiScore");
 let hiScoreInitials;
+
 
 let quizQuestions = [
     {
@@ -74,14 +75,17 @@ function runQuiz() {
 
             //output score and percent correct
             alert("Game over, thanks for playing!  Your total score was " + score + "/" + quizQuestions.length + " correct, or " + score / quizQuestions.length * 100 + "%!");
-            
-            if (score > hiScore)
-            hiScore = score;
-            hiScoreInitials = prompt("You got a new high score! Please enter your initials to record your record.");
-            localStorage.setItem("hiScoreInitials", hiScoreInitials);
-            localStorage.setItem("hiScore", hiScore);
-            console.log(hiScoreInitials);
+            console.log(score);
             console.log(hiScore);
+            if (score > hiScore) {
+                hiScore = score;
+                hiScoreInitials = prompt("You got a new high score! Please enter your initials to record your record.");
+                localStorage.setItem("hiScoreInitials", hiScoreInitials);
+                localStorage.setItem("hiScore", hiScore);
+                displayHighScore();
+            }   else {
+                alert("You didn't quite get a new high score....better luck next time!");
+            }
         }
     });
 
@@ -103,6 +107,20 @@ function disableButtons() {
 
 }
 
+function displayHighScore() {
+    if (localStorage.getItem("hiScoreInitials") == null) {
+        hiScoreDisplay.textContent = "No high score stored!";
+    } else {
+        hiScoreDisplay.textContent = ("Current High Score: " + localStorage.getItem("hiScore") + " questions correct by " + localStorage.getItem("hiScoreInitials"));
+    }
+}
+
+function clearHighScore() {
+    localStorage.removeItem("hiScoreInitials");
+    localStorage.removeItem("hiScore");
+    displayHighScore();
+}
 
 
-    
+
+
