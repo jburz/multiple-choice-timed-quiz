@@ -38,6 +38,15 @@ function updateTimer() {
         disableButtons();
         clearInterval(interval);
         alert("Time is up!");
+        if (score > hiScore) {
+            hiScore = score;
+            hiScoreInitials = prompt("You got a new high score! Please enter your initials to record your record.");
+            localStorage.setItem("hiScoreInitials", hiScoreInitials);
+            localStorage.setItem("hiScore", hiScore);
+            displayHighScore();
+        } else {
+            alert("You didn't quite get a new high score....better luck next time!");
+        }
     } else {
         timerMinutes = Math.floor((totalSeconds - secondsElapsed) / 60);
         timerSeconds = (totalSeconds - secondsElapsed) % 60;

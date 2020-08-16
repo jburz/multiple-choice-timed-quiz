@@ -60,6 +60,7 @@ function runQuiz() {
             score++;
         } else {
             alert("Wrong");
+            secondsElapsed += 10;
         }
 
         console.log("Answer selected: " + event.target.textContent);
