@@ -2,7 +2,7 @@
 //Variable to count down from start
 const timer = document.getElementById("timer");
 const timerButton = document.getElementById('timer-button');
-let totalSeconds = 180;
+let totalSeconds = 90;
 let timerSeconds = 0;
 let secondsElapsed = 0;
 let timerMinutes = 0;

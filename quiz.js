@@ -43,10 +43,11 @@ function runQuiz() {
     //create a button element for each of the 4 answers
     for (let i = 0; i < 4; i++) {
         buttonAnswer[i] = document.createElement("button");
-        answersElem.append(buttonAnswer[i]);
         buttonAnswer[i].setAttribute("id", "answer-button" + i);
+        buttonAnswer[i].setAttribute("class", "btn btn-info text-center");
         buttonAnswer[i].textContent = quizQuestions[questionIndex].a[i + 1];
         console.log(buttonAnswer[i].textContent);
+        answersElem.append(buttonAnswer[i]);
     };
 
     //Click listener to wait for an answer button click
@@ -75,15 +76,15 @@ function runQuiz() {
 
             //output score and percent correct
             alert("Game over, thanks for playing!  Your total score was " + score + "/" + quizQuestions.length + " correct, or " + score / quizQuestions.length * 100 + "%!");
-            console.log(score);
-            console.log(hiScore);
+            // console.log(score);
+            // console.log(hiScore);
             if (score > hiScore) {
                 hiScore = score;
                 hiScoreInitials = prompt("You got a new high score! Please enter your initials to record your record.");
                 localStorage.setItem("hiScoreInitials", hiScoreInitials);
                 localStorage.setItem("hiScore", hiScore);
                 displayHighScore();
-            }   else {
+            } else {
                 alert("You didn't quite get a new high score....better luck next time!");
             }
         }
@@ -109,9 +110,9 @@ function disableButtons() {
 
 function displayHighScore() {
     if (localStorage.getItem("hiScoreInitials") == null) {
-        hiScoreDisplay.textContent = "No high score stored!";
+        hiScoreDisplay.textContent = "No high score set!";
     } else {
-        hiScoreDisplay.textContent = ("Current High Score: " + localStorage.getItem("hiScore") + " questions correct by " + localStorage.getItem("hiScoreInitials"));
+        hiScoreDisplay.textContent = ("Current High Score: " + localStorage.getItem("hiScore") + "/" + quizQuestions.length + " by " + localStorage.getItem("hiScoreInitials"));
     }
 }
 

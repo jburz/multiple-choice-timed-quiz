@@ -1,24 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 </head>
+
 <body>
-    <header id="header">JavaScript Quiz</header>
-    <main>
-        <div class="container"></div>
-        <p id="timer"></p>
-        <button id="timer-button">Start Quiz</button>
-        <button id="clear-button">Clear Score</button>
-        <div id="question"></div>
-        <div id="answers"></div>
-        <div id="div-hi-score"></div>
-            <p id="hi-score">Hi Score</p>
-    </main>
+    <div class="container" style="background-color: #FCEFEF;">
+        <header id="header">
+            <div class="row justify-content-center">
+                <h1 class="text-info">
+                    JavaScript Quiz
+                </h1>
+            </div>
+        </header>
+        <main>
+            <div class="row justify-content-center" style="font-size: 30px;">
+                <p id="timer"></p>
+            </div>
+            <div class="row justify-content-center">
+                <button id="timer-button" class="btn btn-info">Start Quiz</button>
+                <button id="clear-button" class="btn btn-info">Clear Score</button>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <div id="question" class="col-sm-12 d-sm-flex justify-content-center"></div>
+                </div>
+                <div id="answers" class="col-sm-12 d-sm-flex justify-content-center">
+                </div>
+
+            </div>
+            <div id="div-hi-score"></div>
+            <p id="hi-score" style="font-size: 30px">Hi Score</p>
+        </main>
+    </div>
+
+
     <script src="./quiz.js"></script>
     <script src="./timer.js"></script>
     <script src="./setup.js"></script>
 </body>
+
 </html>
