@@ -60,7 +60,7 @@ function runQuiz() {
             score++;
         } else {
             alert("Wrong");
-            secondsElapsed += 10;
+            secondsElapsed += 20;
         }
 
         console.log("Answer selected: " + event.target.textContent);
@@ -120,6 +120,7 @@ function displayHighScore() {
 function clearHighScore() {
     localStorage.removeItem("hiScoreInitials");
     localStorage.removeItem("hiScore");
+    hiScore = localStorage.getItem("hiScore");
     displayHighScore();
 }
 
